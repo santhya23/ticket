@@ -2,3 +2,9 @@ Flask
 Flask-Mail
 tinydb
 Werkzeug
+## Installation
+pip install -r requirements.txt
+
+## Run
+python app.py
+
