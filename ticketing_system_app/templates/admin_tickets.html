@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - All Tickets</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+        <form action="{{ url_for('admin_logout') }}" method="get" style="margin: 0;">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+    <h2>All Tickets</h2>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Department</th>
+                <th>System</th>
+                <th>Problem</th>
+                <th>Email</th>
+                <th>Severity</th>
+                <th>Status</th>
+                <th>Image</th>
+                <th>Change Status</th>
+            </tr>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.doc_id }}</td>
+                <td>{{ ticket['department'] }}</td>
+                <td>{{ ticket['system'] }}</td>
+                <td>{{ ticket['problem'] }}</td>
+                <td>{{ ticket['email'] }}</td>
+                <td>{{ ticket['severity'] }}</td>
+                <td>{{ ticket['status'] }}</td>
+                <td>
+                    {% if ticket.get('image_filename') %}
+                        <img src="{{ url_for('static', filename='uploads/' + ticket['image_filename']) }}" alt="Attached Image" style="max-width:80px; max-height:80px;">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="{{ url_for('update_ticket', ticket_id=ticket.doc_id) }}" method="post">
+                        <select name="status">
+                            <option value="New" {% if ticket['status'] == 'New' %}selected{% endif %}>New</option>
+                            <option value="In Process" {% if ticket['status'] == 'In Process' %}selected{% endif %}>In Process</option>
+                            <option value="Solved" {% if ticket['status'] == 'Solved' %}selected{% endif %}>Solved</option>
+                        </select>
+                        <button type="submit" class="btn">Update</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Feedback for Ticket #{{ ticket_id }}</h2>
+
+    <form method="post">
+        <label for="feedback">Please provide your feedback:</label>
+        <textarea id="feedback" name="feedback" required></textarea>
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+</div>
+</body>
+</html>

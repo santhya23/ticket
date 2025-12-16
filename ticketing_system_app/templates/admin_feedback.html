@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Feedback</title>
+    <a href="{{ url_for('admin_feedback') }}">View User Feedback</a>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>User Feedback</h2>
+
+    {% if feedback_list %}
+        <table>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Feedback</th>
+            </tr>
+            {% for fb in feedback_list %}
+            <tr>
+                <td>{{ fb.ticket_id }}</td>
+                <td>{{ fb.feedback }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No feedback available.</p>
+    {% endif %}
+
+    <a href="{{ url_for('admin_dashboard') }}">Back to Admin Dashboard</a>
+</div>
+</body>
+</html>
