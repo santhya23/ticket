@@ -4,6 +4,13 @@
 
 ---
 
+## 🌐 Live Demo
+
+👉 [https://ticketingsys23.onrender.com](https://ticketingsys23.onrender.com)
+
+---
+
+
 ## 🚀 Project Overview
 
 **NGMC Smart Ticketing System** is a college‑oriented web application developed as a **model system** to simplify issue reporting and resolution within laboratories.
@@ -85,13 +92,6 @@ ticket/
 │── README.md
 ```
 
----
-
-## 🌐 Live Demo
-
-👉 [https://ticketingsys23.onrender.com](https://ticketingsys23.onrender.com)
-
----
 
 ## 🧪 Installation & Setup
 
@@ -129,6 +129,7 @@ http://localhost:5000
 ## 👩‍💻 Author
 
 **Santhya Loganathan**
+
 B.Sc Information Technology
 
 ---
