@@ -1,6 +1,6 @@
 # 🎟 NGMC Smart Ticketing System
 
-> A smart, web‑based ticketing system designed for **college internal use**, enabling staff to raise issues digitally and notify the respective lab in‑charge for quick resolution.
+A smart, web‑based ticketing system designed for **college internal use**, enabling staff to raise issues digitally and notify the respective lab in‑charge for quick resolution.
 
 ---
 
